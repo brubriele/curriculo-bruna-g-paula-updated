@@ -1,0 +1,33 @@
+//Placeholder class
+.reset {
+  position: absolute;
+  margin: 0;
+  width: 100%;
+  min-height: 100vh;
+  top: 0;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.flex-elements {
+  display: flex;
+  flex-direction: column;
+}
+
+.hover-animation {
+  background: linear-gradient(
+    to bottom,
+    $hintHighLight 0%,
+    $hintHighLight 100%
+  );
+  background-position: 0 100%;
+  background-repeat: repeat-x;
+  background-size: 4px 4px;
+  text-decoration: none;
+  transition: background-size 0.2s;
+
+  &:hover {
+    background-size: 4px 50px;
+  }
+}

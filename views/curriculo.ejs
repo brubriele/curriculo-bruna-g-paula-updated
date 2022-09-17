@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <title><%= title %></title>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content=="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Curriculum and portfolio developed with ejs template, Node.js and Express">
+  <link rel="shortcut icon" href="../assets/bgp.png" type="image/png" sizes="16x16">
+
+  <link rel='stylesheet' href='/styles/css/main.css' />
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://kit.fontawesome.com/0999dad2cf.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0-beta.21/dist/shoelace/shoelace.css">
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0-beta.21/dist/shoelace/shoelace.esm.js"></script>
+
+</head>
+
+<body class="curriculum">
+  <header>
+    <h1><%= name %></h1>
+    <p><%= profession %></p>
+    <hr>
+  </header>
+
+  <main>
+    <section tabindex="0" role="region" aria-label="Sobre meu perfil" class="container-about">
+      <div id="about" class="description-area">
+        <div class="bullet-number">
+          <h2>01<span>_</span><span>Perfil </span></h2>
+          <p><%= description %></p>
+
+        </div>
+      </div>
+
+    </section>
+
+    <section tabindex="0" role="region" aria-label="Destaques sobre carreira" data-aos="fade-up" class="container-career">
+      <div id="career" class="description-area">
+        <div class="bullet-number">
+          <h2>02<span>_</span><span>Carreira </span></h2>
+        </div>
+        <ul>
+          <% experience.map(experience => { %>
+          <li data-aos="fade-up">
+            <div>
+              <h3><%= experience.company %> | <%= experience.office %></h3>
+              <p><%= experience.period %></p>
+
+              <br>
+              <span><%= experience.description %></span>
+            </div>
+            <div class="highlight">
+              <p aria-label="Primeira skill"><%= experience.firstHighlight %></p>
+              <p aria-label="Segunda skill"><%= experience.scndHighlight %></p>
+              <p aria-label="Terceira skill"><%= experience.thirdHighlight %></p>
+            </div>
+
+          </li>
+          <% }); %>
+        </ul>
+      </div>
+    </section>
+
+    <section tabindex="0" role="region" aria-label="Formação e cursos" data-aos="fade-up" class="container-education">
+      <div class="description-area">
+        <div class="bullet-number">
+          <h2>03.1<span>_</span><span>Formação </span></h2>
+        </div>
+        <ul>
+          <% education.map(education => { %>
+          <li>
+            <div>
+              <strong><%= education.institution %></strong>
+              <br>
+              <span><%= education.description %></span>
+              <br>
+              <span><%= education.period %></span>
+            </div>
+          </li>
+          <% }); %>
+        </ul>
+      </div>
+
+      <div class="description-area extension">
+        <div class="bullet-number">
+          <h2>03.2<span>_</span><span>Cursos </span></h2>
+        </div>
+        <div tabindex="0" role="region" aria-label="Cursos" class="extension-timeline">
+
+
+          <sl-tab-group>
+            <% extension.map(extension => { %>
+            <sl-tab slot="nav" panel="<%= extension.id %>"><%= extension.shortNameExtension %></sl-tab>
+
+            <sl-tab-panel tabindex="0" name="<%= extension.id %>">
+              <h4><%= extension.title %></h4><br><%= extension.description %>
+            </sl-tab-panel>
+            <% }); %>
+          </sl-tab-group>
+
+        </div>
+      </div>
+
+
+
+
+    </section>
+
+    <section tabindex="0" role="region" aria-label="Exemplos de projetos desenvolvidos" class="container-portfolio">
+      <div id="porftolio" class="description-area">
+        <div class="bullet-number">
+          <h2>04<span>_</span><span>Projetos </span></h2>
+        </div>
+
+      </div>
+
+      <ul class="card-list">
+        <% projects.map(projects => { %>
+        <li data-aos="<%= projects.fade %>">
+          <div class="card-list__shape">
+            <div class="text">
+              <h2><%= projects.name %></h2>
+              <p><%= projects.description %></p>
+              <div class="text__links">
+                <a target="_blank" href="<%= projects.projectPage %>"><i title="Link para o projeto" class="fas fa-external-link-alt"></i></a>
+                <a target="_blank" href="<%= projects.repository %>"><i title="Repositório do projeto no Github" class="fas fa-code-branch "></i></i></a>
+              </div>
+              <div class="card-list__shape--stack">
+                <span>Stack:</span>
+                <i class="<%= projects.stack1 ? projects.stack1 : 'hidden-item'%>"></i>
+                <span class="sr-only"><%= projects.stackAria1 %></span>
+                | <i class="<%= projects.stack2 ? projects.stack2 : 'hidden-item'%>"></i>
+                <span class="sr-only"><%= projects.stackAria2 %></span>
+                | <i class="<%= projects.stack3 ? projects.stack3 : 'hidden-item' %>">|</i>
+                <span class="sr-only"><%= projects.stackAria3 %></span>
+              </div>
+            </div>
+
+        </li>
+        <% }); %>
+      </ul>
+    </section>
+  </main>
+  <footer>
+    <p>Footer <span> /></span></p>
+    <div class="description-footer">
+
+      <p>Desenvolvido com HTML, CSS, Javascript, Node.JS e EJS template. </p>
+      <p>Todos os direitos reservados.<br>Bruna G. Paula<br></p>
+      <div class="icons-box">
+        <a target="_blank" href="https://github.com/brubriele"><i class="fa fa-github-alt"></i></a>
+        <a target="_blank" href="https://www.linkedin.com/in/bruna-gabriele-de-paula"><i class="fa fa-linkedin"></i></a>
+        <a target="_blank" href="mailto:brunagabriele.paula@gmail.com"><i class="fa fa-envelope"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    AOS.init();
+  </script>
+</body>
+
+</html>

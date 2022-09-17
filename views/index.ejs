@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Curriculum and portfolio developed with ejs template, Node.js and Express">
+  <title><%= title %></title>
+  <link rel="shortcut icon" href="../assets/bgp.png" type="image/png" sizes="16x16">
+  <meta name="theme-color" content="#fc5aff" />
+  <link rel='stylesheet' href='/styles/css/main.css' />
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+</head>
+
+<body class="home">
+  <!-- <a target="_blank" href="https://woliveiras.com.br/posts/criando-um-curr%C3%ADculo-com-node-js-express-e-templates-ejs/">Referência Blog WOliveira</a> -->
+  <div class="container">
+    <header>
+
+      <div class="box-menu">
+        <div class="box-menu__brand">
+          <h1><span>
+              < </span><%= titleHeader %> <span> /> </span></h1>
+        </div>
+
+        <nav class="menu">
+          <input type="checkbox" id="menuToggle">
+          <label for="menuToggle" class="menu__icon"><i class="fa fa-bars"></i></label>
+          <ul>
+            <li>
+              <a href="/curriculo#about">Perfil<span> /></span></a>
+            </li>
+            <li>
+              <a href="/curriculo#career">Carreira<span> /></span></a>
+            </li>
+            <li>
+              <a href="/curriculo#porftolio">Projetos<span> /></span></a>
+
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <section class="rw-wrapper">
+        <!-- <hr> -->
+        <h2 class="rw-wrapper__sentence">
+          <span class="cursor">Olá, meu nome é <span>Bruna</span> e eu desenvolvo</span>
+          <br>
+          <div class="rw-wrapper__words">
+            <div class="animation">
+
+              <% animationItems.map(skill => { %>
+              <span class="animation__type"><%= skill %><span>_</span></span>
+              <% }); %>
+            </div>
+          </div>
+        </h2>
+        <input aria-disabled="true" aria-label="animação de palavras com principais skills da desenvolvedora" role="complementary" class="rw-wrapper__type-input" maxlength="22" rows="1" wrap="off" readonly>
+      </section>
+
+
+    </main>
+    <footer>
+      <p>Footer <span> /></span></p>
+      <div class="description-footer">
+
+        <p>Desenvolvido com HTML, CSS, Javascript vanilla, Node.JS e EJS template. </p>
+        <p>Todos os direitos reservados.<br>Bruna G. Paula<br></p>
+
+
+        <!-- <p>Versão <%= version %></p> -->
+        <div class="icons-box">
+          <a target="_blank" href="https://github.com/brubriele"><i class="fa fa-github-alt"></i></a>
+          <a target="_blank" href="https://www.linkedin.com/in/bruna-gabriele-de-paula"><i class="fa fa-linkedin"></i></a>
+          <a target="_blank" href="mailto:brunagabriele.paula@gmail.com"><i class="fa fa-envelope"></i></a>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+
+</html>

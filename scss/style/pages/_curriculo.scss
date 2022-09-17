@@ -1,0 +1,196 @@
+.curriculum {
+  main {
+    max-width: 960px;
+    margin: 0 auto;
+
+    padding-bottom: 14rem;
+
+    @media (min-width: $xs-iphone) {
+      width: 92%;
+    }
+    @media (min-width: $md) {
+      width: 68%;
+    }
+  }
+
+  footer {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 27vh;
+  }
+  .bullet-number {
+    display: flex;
+    flex-direction: column;
+
+    h2 {
+      @extend .typo-32;
+      font-weight: $fontWeighblack;
+
+      & > span {
+        &:first-of-type {
+          animation: cursor 0.8s infinite;
+          color: #4cbb5f;
+          margin: 0;
+        }
+      }
+    }
+
+    p {
+      @media (max-width: $sm) {
+        width: 100%;
+      }
+
+      @media (min-width: $xl) {
+        width: 54%;
+      }
+    }
+
+    span {
+      margin-left: 34px;
+    }
+
+    svg {
+      width: 8%;
+      position: relative;
+      bottom: 56px;
+      opacity: 0.5;
+
+      @media (max-width: $sm) {
+        width: 16%;
+      }
+    }
+  }
+
+  .container-about {
+    background: url('../../assets/profile/bruna-perfil.png') no-repeat;
+    display: flex;
+    background-size: 60%;
+    background-position-x: center;
+    flex-direction: column-reverse;
+    -webkit-animation: fade-in 1.2s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+    animation: fade-in 1.2s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+
+    @media (max-width: $xs) {
+      min-height: 720px;
+    }
+
+    @media (min-width: $sm) {
+      min-height: 708px;
+    }
+    @media (min-width: $md) {
+      background-size: auto;
+      min-height: 828px;
+    }
+
+    @media (min-width: $lg) {
+      min-height: 828px;
+    }
+
+    @media (min-width: $xl) {
+      min-height: 20vh;
+      background-size: contain;
+      background-position-x: right;
+    }
+    @media (min-width: $fhd) {
+      width: 48vw;
+    }
+  }
+
+  .container-career {
+    h3 {
+      margin: 0;
+    }
+    ul {
+      li {
+        margin-bottom: 3rem;
+      }
+    }
+
+    .highlight {
+      display: flex;
+
+      @media (max-width: $xs) {
+        flex-direction: column;
+      }
+      p {
+        @extend .typo-14;
+        padding: 0 0.1rem;
+        margin-right: 1rem;
+        font-weight: bolder;
+        text-align: center;
+        background-image: linear-gradient(
+          to right,
+          #f27121cc,
+          #e94057cc,
+          #8a2387cc
+        );
+        border-radius: 6px;
+        padding: 3px 6px;
+
+        @media (max-width: $xs) {
+          font-size: $f12;
+        }
+      }
+    }
+  }
+  .container-portfolio {
+    margin-top: 4rem;
+  }
+
+  .container-education {
+    display: flex;
+    justify-content: space-between;
+    min-height: 40vh;
+    // margin-right: 6rem;
+
+    @media (max-width: $md) {
+      flex-direction: column;
+      // min-height: 80vh;
+
+      // min-height: 48vh;
+    }
+    .description-area {
+      ul > li {
+        margin-bottom: 2rem;
+        @media (max-width: $md) {
+          width: 72vw;
+        }
+      }
+      @media (max-width: $md) {
+        // height: 20vh;
+        height: 62vh;
+      }
+    }
+    .extension {
+      width: 30vw;
+      min-height: 72vh;
+
+      .extension-timeline {
+        .hydrated {
+          --sl-color-primary-50: #{$tertiary-main};
+          width: 100%;
+        }
+        @media (max-width: $xs) {
+          position: relative;
+          right: 28%;
+          width: 92vw;
+        }
+
+        @media (max-width: $md) and (min-width: $sm) {
+          width: 70vw;
+        }
+      }
+    }
+  }
+
+  .description-area {
+    ul {
+      padding: 0;
+    }
+    @media (max-width: $sm) {
+      padding: 1.5rem;
+    }
+  }
+}
